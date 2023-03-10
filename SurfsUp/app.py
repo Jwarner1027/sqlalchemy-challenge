@@ -1,5 +1,4 @@
 #import dependencies
-
 import numpy as np
 import datetime as dt
 import sqlalchemy
@@ -23,7 +22,6 @@ Measurement = Base.classes.measurement
 Station = Base.classes.station
 
 # Flask Setup
-
 app = Flask(__name__)
 
 # Route to homepage
@@ -90,13 +88,12 @@ def tobs():
     most_active = most_active_station = session.query(Measurement.station).group_by(Measurement.station).order_by(func.count().desc()).first()
     most_active_station = most_active[0] 
     sel = [Measurement.date, Measurement.tobs]
-    query = session.query(*sel).filter(Measurement.date >= one_year).filter(Measurement.station == most_active_station).all()
-
+    tobs_query = session.query(*sel).filter(Measurement.date >= one_year).filter(Measurement.station == most_active_station).all()
     session.close()
 
     tobs_list = []
 
-    for date, tob in query:
+    for date, tob in tobs_query:
         tobs_dict = {}
         tobs_dict['Date'] = date
         tobs_dict['tobs'] = tob
