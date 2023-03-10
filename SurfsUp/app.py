@@ -34,8 +34,8 @@ def welcome():
         f"Precipitation: /api/v1.0/precipitation<br/>"
         f"List of Stations: /api/v1.0/stations<br/>"
         f"Temperature for one year of most active station: /api/v1.0/tobs<br/>"
-        f"Temperature stat from the start date: /api/v1.0/<start><br/>"
-        f"Temperature stat from start to end dates: /api/v1.0/<start>/<end>"
+        f"Temperature stat from the start date: /api/v1.0/&lt;start&gt;<br/>"
+        f"Temperature stat from start to end dates: /api/v1.0/&lt;start&gt;/&lt;end&gt;"
     )
 
 # Precipitation route
